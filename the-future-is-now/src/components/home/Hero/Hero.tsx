@@ -3,7 +3,9 @@ import styles from './Hero.module.sass'
 export const Hero = () => {
     return (
         <section className={ styles.Hero }>
-            <p>Este es el hero 🦸🏻</p>
+            <h1>The future is now</h1>
+
+            <h2>Empowering Your Tomorrow, Today!</h2>
         </section>
     )
 }
