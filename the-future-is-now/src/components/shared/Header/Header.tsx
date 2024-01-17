@@ -2,7 +2,6 @@ import Link from "next/link"
 import styles from './Header.module.sass'
 
 export const Header = () => {
-    console.log('Hola, mundillo header XD')
     return (
         <header>
           <nav>
