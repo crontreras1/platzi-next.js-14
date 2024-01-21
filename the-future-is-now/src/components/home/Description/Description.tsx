@@ -30,9 +30,9 @@ export const Description = () => {
             </button>
             
             <div className={ styles.Description__text }>
-                <h2>Desription</h2>
+                <h2>Bring the future today</h2>
 
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, ducimus. Sed voluptas esse tempore accusantium nam rerum provident deserunt quidem, labore corrupti, nihil quae illo, placeat perferendis saepe quas dicta?</p>
+                <p>Future World: Your Gateway to Tomorrow's Tech! Dive into a world of cutting-edge gadgets and gear. Stay ahead of the curve and redefine your digital lifestyle with us.</p>
             </div>
         </section>
     )

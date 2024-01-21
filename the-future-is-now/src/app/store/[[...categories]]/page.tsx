@@ -2,8 +2,8 @@
 interface CategoryProps {
     params: { 
         categories: string[],
-        searchParams?: string
     }
+    searchParams?: string
 }
 
 export default function Category (props: CategoryProps) {

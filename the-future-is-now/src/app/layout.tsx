@@ -19,10 +19,6 @@ export default function RootLayout({
       <body className={ roboto.className }>
         <Header />
 
-        <Hero />
-
-        <Description />
-
         { children }
 
         <Footer />
