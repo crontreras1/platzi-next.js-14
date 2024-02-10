@@ -21,7 +21,7 @@ export const getCollections = async () => {
         
         return transformedColletions
     } catch (error) {
-        console.log(error, 'Hubo un error, pendejo!!')
+        console.log(error)
     }
 }
 
