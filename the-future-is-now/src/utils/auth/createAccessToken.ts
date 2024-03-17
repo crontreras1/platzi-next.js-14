@@ -4,10 +4,15 @@ import { cookies } from 'next/headers'
 
 export const createAccessToken = async (email: string, password: string) => {
     const cookiesStore = cookies()
-
     const gralphqlClient = GraphQLClientSingleton.getInstance().getClient()
-
-    const { customerAccessTokenCreate } = await gralphqlClient.request(customerAccessTokenCreateMutation, {
+    const { customerAccessTokenCreate }: {
+        customerAccessTokenCreate: {
+            customerAccessToken: {
+                accessToken: string
+                expiresAt: string
+            }
+        }
+    } = await gralphqlClient.request(customerAccessTokenCreateMutation, {
         "email": email,
         "password": password
     })

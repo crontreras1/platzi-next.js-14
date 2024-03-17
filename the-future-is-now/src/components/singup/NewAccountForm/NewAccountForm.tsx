@@ -1,5 +1,4 @@
 'use client'
-
 import { useState } from "react"
 import styles from './NewAccountForm.module.sass'
 import { handleCreateUser } from "app/actions"
@@ -8,12 +7,13 @@ export const NewAccountForm = () => {
     const [ errors, setErrors ] = useState<string[]>([])
     const [ loading, setLoading ] = useState<boolean>(false)
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event: {
+        target: any
+        preventDefault: () => void
+    }) => {
         event.preventDefault()
-
         const formData = new FormData(event.target)
-        await handleCreateUser(formData)
-        
+        await handleCreateUser(formData)       
     }
 
     return (
@@ -75,9 +75,11 @@ export const NewAccountForm = () => {
 
             { errors.length > 0 && 
                 <div>
-                    { errors.map((error, index) => {
-                        return <p key={ index } className={ styles.NewAccountForm__error }>{ error }</p>
-                    }) } 
+                    { 
+                        errors.map((error, index) => {
+                            return <p key={ index } className={ styles.NewAccountForm__error }>{ error }</p>
+                        })
+                    } 
                 </div>
             }
         </div>

@@ -1,30 +1,38 @@
 import Link from "next/link"
-import { cookies } from "next/headers"
+import dynamic from "next/dynamic"
+import { validateAccessToken } from "app/utils/auth/validateAccessToken"
 import styles from './Header.module.sass'
 
-export const Header = () => {
-  const cookiesStore = cookies()
-  const token = cookiesStore.get('accesToken')?.value
+const NoSSRShoppingCart = dynamic(() => import('../ShoppingCart/ShoppingCart'), { ssr: false })
+
+export const Header = async () => {
+  const customer = await validateAccessToken()
 
   return (
-      <header>
+      <header className={ styles.Header }>
         <nav>
           <ul className={ styles.Header__list }>
             <li>
               <Link href="/">
-                  Home
+                  Inicio
               </Link>
             </li>
 
             <li>
               <Link href="/store">
-                  Store
+                  Tienda
               </Link>
             </li>
           </ul>
-
-          { token ? (<p>Welcome</p>) : (<Link href='/login'>Login</Link>) }
         </nav>
+
+        <div className={ styles.Header__user }>
+          { 
+            customer?.firstName ? (<Link href='/my-account'>Hola, { customer.firstName }</Link>) : (<Link href='/login'>Iniciar sesión</Link>) 
+          }
+
+          <NoSSRShoppingCart />
+        </div>
       </header>    
   )
 }

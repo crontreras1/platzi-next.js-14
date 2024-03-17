@@ -14,11 +14,11 @@ export default function NotFound () {
                 height={ 300 }
             />
 
-            <h2 className={ styles.NotFound__subtitle }>Something went wrong</h2>
+            <h2 className={ styles.NotFound__subtitle }>A ocurrido un error</h2>
 
-            <p className={ styles.NotFound__description }>But our shop is open 24/7</p>
+            <p className={ styles.NotFound__description }>Pero nuestra tienda esta abierta 24/7</p>
 
-            <Link href='/store' className={ styles.NotFound__link}>Let´s get something</Link>
+            <Link href='/store' className={ styles.NotFound__link}>Compremos algo</Link>
         </main>
     )
 }

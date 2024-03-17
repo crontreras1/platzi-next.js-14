@@ -1,7 +1,7 @@
 import { shopifyUrls } from "./urls"
 import { env } from "app/config/env"
 
-export const getProducts = async (id?: string): Promise<ProductType[]> => {
+export const getProducts = async (id?: string) => {
     try {
       const apiUrl = id ? `${shopifyUrls.products.all}?ids=${id}` : shopifyUrls.products.all
 
@@ -39,7 +39,6 @@ export const getMainProducts = async () => {
             'x-Shopify-Access-Token': env.SHOPIFY_TOKEN
         }),
         cache: 'force-cache',
-
         next: {
             tags: ['main-products']
         }

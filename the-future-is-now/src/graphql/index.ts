@@ -4,6 +4,7 @@ import { env } from "app/config/env"
 export class GraphQLClientSingleton {
     private readonly endpoint: string = env.SHOPIFY_GRAPHQL_ENDPOINT
     private static instance: GraphQLClientSingleton
+    
     static getInstance (): GraphQLClientSingleton {
         if (!this.instance) {
             this.instance = new GraphQLClientSingleton()

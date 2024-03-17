@@ -8,9 +8,11 @@ interface ProductsWrapperProps {
 export const ProductsWrapper = ({ products }: ProductsWrapperProps) => {    
     return (
         <div className={ styles.ProductsWrapper }>
-            { products?.map((product) => (
-                <ProductCard key={ product.id } product={ product } />
-                )) }
+            { 
+                products?.map((product) => (
+                    <ProductCard key={ product.id } product={ product } />
+                ))
+            }
         </div>
     ) 
 }

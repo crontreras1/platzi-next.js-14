@@ -1,5 +1,5 @@
-import { getMainProducts } from "app/services/shopify/products"
 import Image from "next/image"
+import { getMainProducts } from "app/services/shopify/products"
 import styles from './MainProducts.module.sass'
 
 export const MainProducts = async () => {   
@@ -7,25 +7,33 @@ export const MainProducts = async () => {
 
     return (
         <section className={ styles.MainProducts }>
-            <h3>✨ New products released!</h3>
+            <h3>✨ NUevos productos lanzados!</h3>
 
             <div className={ styles.MainProducts__grid }>
-                { products?.map((product) => {
-                    const imageSrc = product.images[0].src
+                { 
+                    products?.map((product: {
+                        id: string
+                        title: string
+                        images: {
+                            src: string
+                        }[]
+                    }) => {
+                        const imageSrc = product.images[0].src
 
-                    return (
-                        <article key={ product.id }>
-                            <p>{ product.title }</p>
+                        return (
+                            <article key={ product.id }>
+                                <p>{ product.title }</p>
 
-                            <Image 
-                                src={ imageSrc } 
-                                alt={ product.title } 
-                                fill
-                                loading='eager' 
-                            />
-                        </article>
-                    )
-                }) }
+                                <Image 
+                                    src={ imageSrc } 
+                                    alt={ product.title } 
+                                    fill
+                                    loading='eager' 
+                                />
+                            </article>
+                        )
+                    })
+                }
             </div>
         </section>
     )

@@ -3,7 +3,8 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'future world',
-  description: 'wellcome to the future world, and e-commerce from the other century'
+  description: 'wellcome to the future world, and e-commerce from the other century',
+  keywords: ['ecommerce', 'furute', 'world', 'tecnology']
 }
 
 export default function Home() {
