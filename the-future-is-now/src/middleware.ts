@@ -2,12 +2,12 @@ import { cookies } from "next/headers"
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 
-// export const config = {
-//     matcher: [
-//         '/login/:path',
-//         'signup/:path'
-//     ]
-// }
+export const config = {
+    matcher: [
+        '/login/:path*',
+        '/signup/:path*'
+    ]
+}
 
 export function middleware (req: NextRequest) {
     const cookiesStore = cookies()
